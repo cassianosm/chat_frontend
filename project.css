@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    background-color: rgb(178,203,249);
+    min-width:0;
+    min-height:0;
+}
+
+input[type="text"] {
+    font-size: inherit;
+    width: 70vw;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+}
+
+header {
+    flex: 0 0 50px;
+    padding: 7px;
+    background-color: #08162F;
+    color: #B2CBF9;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 0;
+    min-height: 0;
+}
+
+#messages {
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column-reverse;
+    flex-grow: 1;
+    background-color: #B2CBF9;
+}
+
+#messages > div {
+    background-color: white;
+    border-radius: 3px;
+    margin: 5px;
+    margin-right: 10vw;
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+#messages .self {
+    margin-left: 10vw;
+    margin-right: 5px;
+}
+
+#messages .latest-message {
+    background-color: #4C85F0;
+}
+
+#messages div > time {
+    float: right;
+    font-size: 0.7em;
+    color: gray;
+    margin-top: 10px;
+}
+
+#messages div > span:nth-child(1) {
+    max-width: 20px;
+    word-wrap: break-word;
+    font-weight: bold;
+    font-size: 1em;
+    padding-right: 5px;
+}
+
+#messages div > span:nth-child(2) {
+    font-size: 1.1em;
+    color: #08162F;
+}
+
+.bottom {
+    flex: 0 0 50px;
+    background-color: #4C85F0;
+    color: #08162F;
+    padding-top: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+.nav {
+    margin: 0;
+    padding: 0px;
+    position: fixed;
+    top: 0px;
+    left: -2000px;
+    background-color: rgba(178,203,249,0.9);
+    width: 100%;
+    height: 100%;
+    transition-duration: 2s;
+    color: #08162F;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.toggle {
+    left: 0;
+    transition-duration: 1s;
+    z-index: 1000;
+}
+
+.aside {
+    margin: 0;
+    padding: 0px;
+    position: fixed;
+    top: 0px;
+    right: -2000px;
+    background-color: rgba(178,203,249,0.9);/*#B2CBF9*/
+    width: 100%;
+    height: 100%;
+    transition-duration: 2s;
+    color: #08162F;
+    padding-left: 5px;
+}
+
+.asideToggle {
+    right: 0;
+    transition-duration: 1s;
+    z-index: 1000;
+}
+
+.bottomButtons {
+    margin: 0;
+    padding: 0px;
+    position: fixed;
+    bottom: -1000px;
+    right: 0px;
+    background-color: rgba(76, 133, 240, 0.7);
+    width: 100%;
+    height: 100px;
+    transition-duration: 1s;
+    color: #08162F;
+    padding-left: 5px;
+    z-index: -1;
+}
+
+.bottomButtons li {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#input li, header li {
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.bottomButtons ul {
+    margin: 5px;
+}
+
+.bottomButtonsToggle {
+    bottom: 0;
+    transition-duration: 1s;
+    z-index: -1;
+}
+
+#num {
+    float: right;
+    font-size: 14px;
+}
+
+#close, #closeUsers, #closeCustomButtons {
+    height: 50px;
+    color: #08162F;
+}
+
+#close, #closeCustomButtons {
+    text-align: right;
+}
+
+#lowerCloseButton{
+    float: right;
+}
+
+#closeUsers {
+    text-align: left;
+}
+
+#closeButton, #menuButton, #usersButton, #closeButtonAside {
+    padding: 2px;
+}
+
+#usersButton {
+    float:right;
+}
+
+#current-room {
+    overflow: hidden;
+    max-width: 50vw;
+    display: inline-block;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.button {
+    background-color: #1050C8;
+    border: none;
+    color: #B2CBF9;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 10px 10px;
+}
+
+#smiley {
+    width: 15vw;
+    background-color: #1050C8;
+    border: none;
+    color: #B2CBF9;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 7px;
+}
+
+#members {
+    padding: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80vh;
+}
+
+#members > div {
+    padding: 2px;
+    word-wrap: break-word;
+}
+
+#members .self {
+    font-weight: bold;
+}
+
+#user li, #rooms li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@media only screen and (min-width : 768px) {
+    .nav, .aside {
+        width: 50%;
+    }
+    #nameInput, #roomInput {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+    .container {
+        width: 75vw;
+        margin: auto;
+    }
+    #textInput {
+        width: 500px;
+    }
+
+    .aside {
+        display:none;
+        width: 25vw;
+        position: fixed;
+        top: 60px;
+        right: 5px;
+        background-color: rgb(178,203,249);
+        height: 300px;
+        padding: 5px;
+        box-sizing: content-box;
+        border: 1px solid #08162F;
+        border-radius: 3px;
+    }
+
+    .asideToggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        margin: 0;
+        padding: 0px;
+        position: fixed;
+        top: 60px;
+        left: 5px;
+        width: 28vw;
+        height: 500px;
+        color: #08162F;
+        padding-right: 5px;
+        padding-left: 5px;
+        background-color: rgb(178,203,249);
+        box-sizing: content-box;
+        border: 1px solid #08162F;
+        border-radius: 3px;
+    }
+
+    .toggle {
+        display: block;
+        z-index: 0;
+    }
+
+    #members, #messages {
+        overflow-y: auto;
+    }
+
+    #members {
+        height: 240px;
+    }
+
+    #messages > div {
+        margin-right: 40px;
+        padding: 10px;
+    }
+
+    #messages .self {
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+
+    aside, .aside, .asideToggle, nav, .nav, .toggle {
+        transition-duration: 0s;
+    }
+
+    #closeUsers {
+        height: 32px;
+        margin-bottom: 10px;
+        text-align: right;
+        cursor: move;
+    }
+
+    #close {
+        height: 32px;
+        margin-bottom: 10px;
+        cursor: move;
+    }
+
+    #closeButton, #closeButtonAside, #lowerCloseButton, button, #smiley, #menuButton, #usersButton {
+        cursor: pointer;
+    }
+
+    header ul {
+        width: 90vw;
+        margin: auto;
+    }
+}

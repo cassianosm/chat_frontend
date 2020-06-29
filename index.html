@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Water Cooler Chat</title>
+        <link rel="stylesheet" href="project.css" type="text/css">
+        <script type="text/javascript" src="project.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li>
+                    <i id="menuButton" class="fa fa-bars fa-2x" aria-hidden="true"></i><span id="current-room"></span>
+                </li>
+                <li>
+                    <span id="num"></span><i id="usersButton" class="fa fa fa-users fa-2x" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </header>
+        <div class="container" id="chat" messages-to-keep=10 latest-message-duration=1 timeago-update-interval=60>
+            <nav class="nav">
+                <div id="close">
+                    <span class="userName"></span><i id="closeButton" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </div>
+                <div id="user">
+                    <ul>
+                        <li>
+                            <input id="nameInput" type="text" placeholder="What's your name?"> <button id="nameInputBtn" class="button">Set! <i class="fa fa-user" aria-hidden="true"></i></button>
+                        </li>
+                        <li>
+                            <button class="button" name="Jason">Set name to Jason</button>
+                        </li>
+                        <li>
+                            <button class="button" name="Abby">Set name to Abby</button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="rooms">
+                    <ul>
+                        <li>
+                            <input id="roomInput" type="text" placeholder="What room?"> <button id="roomInputBtn" class="button">Go! <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </li>
+                        <li>
+                            <button class="button" join="lobby">Lobby <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </li>
+                        <li>
+                            <button class="button" join="red">Red room <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </li>
+                        <li>
+                            <button class="button" join="blue">Blue room <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </li>
+                        <li>
+                            <button class="button" join="green">Green room <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <aside class="aside">
+                <div id="closeUsers">
+                        <i id="closeButtonAside" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </div>
+                <div id="members">
+                </div>
+            </aside>
+            <div id="messages">
+            </div>
+        </div>
+        <div class="bottom" id="input">
+            <div id="customButtons" class="bottomButtons">
+                <ul>
+                    <li>
+                        <button class="button" send="<i class='fa fa-thumbs-up' aria-hidden='true'></i>"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <button class="button" send="<i class='fa fa-thumbs-down' aria-hidden='true'></i>"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <button class="button" send="<i class='fa fa-hand-scissors-o' aria-hidden='true'></i>"><i class="fa fa-hand-scissors-o" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <button class="button" send="<i class='fa fa-hand-spock-o' aria-hidden='true'></i>"><i class="fa fa-hand-spock-o" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <button class="button" send="<i class='fa fa-hand-lizard-o' aria-hidden='true'></i>"><i class="fa fa-hand-lizard-o" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <button class="button" send="<i class='fa fa-hand-pointer-o' aria-hidden='true'></i>"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+                    </li>
+                    <li id="lowerCloseButton">
+                        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    </li>
+                </ul>
+            </div>
+            <ul>
+                <li>
+                    <span id="smiley"><i class="fa fa-smile-o fa-lg" aria-hidden="true"></i></span>
+                </li>
+                <li>
+                    <input id="textInput" type="text" placeholder="Your message...">
+                </li>
+                <li>
+                    <button id="textSend" class="button">Send</button>
+                </li>
+            </ul>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="http://css.operatoroverload.com/project/js/timeago.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.1/firebase.js"></script>
+    <script src="http://css.operatoroverload.com/project/js/chat.js"></script>
+</html>
